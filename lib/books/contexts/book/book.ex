@@ -8,8 +8,8 @@ defmodule Books.Contexts.Book do
   import Ecto.Changeset
   alias Books.Contexts.{Book, Review}
 
-  @fields [:title, :cover]
-  @required [:title, :cover]
+  @fields [:title, :author, :cover]
+  @required [:title, :author, :cover]
 
   schema "books" do
     field :title, :string
