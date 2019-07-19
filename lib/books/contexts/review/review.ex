@@ -1,4 +1,9 @@
 defmodule Books.Contexts.Review do
+
+  @moduledoc """
+  Define la estructura inicial de un review de un libro
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
   alias Books.Contexts.{Book, Review}
@@ -13,6 +18,10 @@ defmodule Books.Contexts.Review do
     timestamps()
   end
 
+  @doc """
+  Change set para un review
+  """
+  @spec changeset(map, list) :: Ecto.Changeset
   def changeset(%Review{} = review, attrs) do
     review
     |> cast(attrs, @fields)
