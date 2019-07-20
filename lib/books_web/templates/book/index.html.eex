@@ -1,0 +1,10 @@
+<h1>Agregar un nuevo libro</h1>
+
+<%= form_for @conn, Routes.book_path(@conn, :create), [multipart: :true], fn f-> %>
+  <%= text_input f, :title %>
+  <%= text_input f, :author%>
+  <%= file_input f, :cover %>
+  <p>
+    <%= submit "Subir Libro" %>
+  </p>
+<% end %>
