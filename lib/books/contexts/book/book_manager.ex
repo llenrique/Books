@@ -15,7 +15,6 @@ defmodule Books.Contexts.BookManager do
   def create(fields \\ %{}) do
     %Book{}
     |> Book.changeset(fields)
-    |> IO.inspect
     |> Repo.insert
   end
 end

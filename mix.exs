@@ -44,6 +44,7 @@ defmodule Books.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:ex_machina, "~> 2.3", only: :test},
+      {:mock, "~> 0.3.0", only: :test}
     ]
   end
 
