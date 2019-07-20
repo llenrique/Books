@@ -19,7 +19,6 @@ defmodule BooksWeb.BookController do
   def show(conn, %{"id" => id}) do
     case BookHelper.get_book(id) do
       book ->
-        IO.inspect book
         conn
         |> assign(:book, book)
         |> render(:show)

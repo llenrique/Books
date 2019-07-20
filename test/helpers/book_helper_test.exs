@@ -2,6 +2,7 @@ defmodule Book.Helpers.BookHelperTest do
   use Books.DataCase
   
   alias Books.Helpers.BookHelper
+  alias Books.Services.BookService
   
   import Mock
   
@@ -13,30 +14,28 @@ defmodule Book.Helpers.BookHelperTest do
     }
   }
 
+  @saved_expected_book %{
+    author: "Enrique Lopez",
+    cover: "string_on_base64",
+    title: "Titulo del libro"
+  }
+
   test "save_book/1 guarda un libro en base de datos" do
     with_mocks([
       {
-        BookHelper,
+        BookService,
         [],
         [
-          save_book: fn _ ->
-            {:ok,  %Books.Contexts.Book{
-              author: "Me",
-              id: 3,
-              inserted_at: ~N[2019-07-20 10:59:23],
-              title: "Title",
-              updated_at: ~N[2019-07-20 10:59:23]
-            }
-           }
-          end,
           build_book_cover: fn _ ->
             "string_on_base64"
           end
         ]
       }
     ]) do
-      book_saved = BookHelper.save_book(@book_params)
-      IO.inspect book_saved
+      {:ok, book_saved} = BookHelper.save_book(@book_params)
+      assert @saved_expected_book = book_saved
+
+      assert called BookService.build_book_cover(@book_params)
     end
   end
 end
