@@ -1,13 +1,24 @@
 defmodule BooksWeb.BookController do
+  @moduledoc """
+  Logica para las rutas de administración de los libros
+  """
   use BooksWeb, :controller
 
   alias Books.Helpers.BookHelper
 
+  @doc """
+  Despliega el formulario donde se coloca la información del libro
+  """
+  @spec index(map, map) :: String.t()
   def index(conn, _params) do
     conn
     |> render(:index)
   end
 
+  @doc """
+  Guarda la información de un libro
+  """
+  @spec create(map, map) :: String.t()
   def create(conn, params) do
     case BookHelper.save_book(params) do
       {:ok, book} ->
@@ -16,7 +27,11 @@ defmodule BooksWeb.BookController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  @doc """
+  Despliega la información de un libro
+  """
+  @spec show(map, map) :: String.t()
+  def show(conn, id) do
     case BookHelper.get_book(id) do
       book ->
         conn

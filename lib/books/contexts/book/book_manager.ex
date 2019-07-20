@@ -18,6 +18,9 @@ defmodule Books.Contexts.BookManager do
     |> Repo.insert
   end
 
+  @doc """
+  Regresa un libro buscando por su id
+  """
   def get_by_id(id) do
     Book
     |> Repo.get!(id)
