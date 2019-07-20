@@ -5,7 +5,7 @@ defmodule Books.Repo.Migrations.CreatesBookTable do
     create table ("books") do
       add :title, :string
       add :author, :string
-      add :cover, :string
+      add :cover, :text
 
       timestamps()
     end

@@ -17,6 +17,9 @@ defmodule BooksWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/new", BookController, :index
+    post "/new", BookController, :create
+    get "/show", BookController, :show
   end
 
   # Other scopes may use custom stacks.
