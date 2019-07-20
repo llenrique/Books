@@ -17,4 +17,9 @@ defmodule Books.Contexts.BookManager do
     |> Book.changeset(fields)
     |> Repo.insert
   end
+
+  def get_by_id(id) do
+    Book
+    |> Repo.get!(id)
+  end
 end

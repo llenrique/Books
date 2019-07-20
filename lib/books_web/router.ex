@@ -19,7 +19,7 @@ defmodule BooksWeb.Router do
     get "/", PageController, :index
     get "/new", BookController, :index
     post "/new", BookController, :create
-    get "/show", BookController, :show
+    get "/show/:id", BookController, :show
   end
 
   # Other scopes may use custom stacks.

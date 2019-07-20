@@ -13,9 +13,19 @@ defmodule Books.Helpers.BookHelper do
   end
 
 
+  def get_book(id) do
+    case BookManager.get_by_id(id) do
+      book ->
+        IO.puts "Here"
+        IO.inspect book
+      _ ->
+        {:error, "Book not found"}
+    end
+  end
+
   def build_book_cover(%{"cover" => cover} = map) do
     %{path: path} = cover
     {:ok, imageData} = File.read(path)
-    base64data = "data:image/png;base64,#{encode64(imageData)}"
+    base64data = "data:image/jpg;base64,#{encode64(imageData)}"
   end
-end 
+end
