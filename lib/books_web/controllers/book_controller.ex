@@ -23,7 +23,7 @@ defmodule BooksWeb.BookController do
     case BookHelper.save_book(params) do
       {:ok, book} ->
         conn
-        |> redirect(to: Routes.book_path(conn, :show, book))
+        |> redirect(to: Routes.book_path(conn, :index))
     end
   end
 
@@ -31,7 +31,7 @@ defmodule BooksWeb.BookController do
   Despliega la información de un libro
   """
   @spec show(map, map) :: String.t()
-  def show(conn, id) do
+  def show(conn, %{"id" => id}) do
     case BookHelper.get_book(id) do
       book ->
         conn

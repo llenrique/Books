@@ -12,7 +12,7 @@ defmodule Books.Services.BookService do
   """
   @spec build_book_cover(map) :: String.t()
   def build_book_cover(%{"cover" => cover}) do
-    %{path: path} = cover
+    %{"path" => path} = cover
     {:ok, imageData} = File.read(path)
     "data:image/jpg;base64,#{encode64(imageData)}"
   end

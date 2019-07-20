@@ -12,8 +12,7 @@ defmodule Books.Helpers.BookHelper do
   """
   @spec save_book(map) :: Ecto.Changeset
   def save_book(map) do
-    with \
-      cover <- BookService.build_book_cover(map),
+    with cover <- BookService.build_book_cover(map),
       %{"title" => title} <- map,
       %{"author" => author} <- map
     do

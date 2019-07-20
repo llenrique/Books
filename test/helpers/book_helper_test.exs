@@ -10,7 +10,7 @@ defmodule Book.Helpers.BookHelperTest do
     "title" => "Titulo del libro",
     "author" => "Enrique Lopez",
     "cover" => %{
-      path: "/aqui/esta/mi/archivo"
+      "path" => "/aqui/esta/mi/archivo"
     }
   }
 
