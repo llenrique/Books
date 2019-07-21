@@ -2,7 +2,6 @@ defmodule Books.Contexts.ReviewManager do
   @moduledoc """
   Modulo para crear reviews de un libro
   """
-  import Ecto.Query
 
   alias Books.Repo
   alias Books.Contexts.Review

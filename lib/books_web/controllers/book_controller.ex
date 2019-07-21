@@ -22,7 +22,7 @@ defmodule BooksWeb.BookController do
   @spec create(map, map) :: String.t()
   def create(conn, params) do
     case BookHelper.save_book(params) do
-      {:ok, book} ->
+      {:ok, _} ->
         conn
         |> redirect(to: Routes.book_path(conn, :index))
     end
