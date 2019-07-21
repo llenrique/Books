@@ -11,6 +11,6 @@ defmodule Books.Contexts.BookTest do
   test "changeset/2 valida los datos de un libro" do
     valid_changeset = Book.changeset(%Book{}, @valid_attrs)
 
-    assert valid_changeset.valid? == :true
+    assert valid_changeset.valid? == true
   end
 end

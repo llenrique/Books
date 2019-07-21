@@ -10,6 +10,6 @@ defmodule Books.Contexts.ReviewTest do
   test "chaneset/2 valida los datos de un review" do
     valid_review = Review.changeset(%Review{}, @valid_attrs)
 
-    assert valid_review.valid? == :true
+    assert valid_review.valid? == true
   end
 end

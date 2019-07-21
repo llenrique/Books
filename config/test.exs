@@ -11,7 +11,7 @@ config :logger, level: :warn
 
 # Configure your database
 config :books, Books.Repo,
-  username: "postgres",
+  username: "enrique",
   password: "postgres",
   database: "books_test",
   hostname: "localhost",

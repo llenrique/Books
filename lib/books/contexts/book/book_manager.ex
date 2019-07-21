@@ -14,15 +14,25 @@ defmodule Books.Contexts.BookManager do
   def create(fields \\ %{}) do
     %Book{}
     |> Book.changeset(fields)
-    |> Repo.insert
+    |> Repo.insert()
   end
 
   @doc """
   Regresa un libro buscando por su id
   """
+  @spec get_by_id(integer) :: Ecto.Changeset
   def get_by_id(id) do
     Book
     |> preload(:reviews)
     |> Repo.get!(id)
+  end
+
+  @doc """
+  Regresa todos los libros registrados
+  """
+  @spec get_all() :: list
+  def get_all do
+    Book
+    |> Repo.all()
   end
 end

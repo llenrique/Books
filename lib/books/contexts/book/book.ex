@@ -1,5 +1,4 @@
 defmodule Books.Contexts.Book do
-
   @moduledoc """
   Define la estructura inicial de un libro
   """

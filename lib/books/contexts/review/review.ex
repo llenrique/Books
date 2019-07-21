@@ -1,5 +1,4 @@
 defmodule Books.Contexts.Review do
-
   @moduledoc """
   Define la estructura inicial de un review de un libro
   """

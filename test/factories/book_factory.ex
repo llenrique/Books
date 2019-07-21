@@ -12,5 +12,4 @@ defmodule Books.BookFactory do
       end
     end
   end
-
 end

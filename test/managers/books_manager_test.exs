@@ -15,7 +15,6 @@ defmodule Books.Contexts.BookManagerTest do
     assert @book_attrs = book
   end
 
-
   test "get_by_id/1 Regresa un libro buscando por su id" do
     inserted_book = insert(:book)
 
@@ -23,5 +22,4 @@ defmodule Books.Contexts.BookManagerTest do
 
     assert length([result]) == 1
   end
-
 end

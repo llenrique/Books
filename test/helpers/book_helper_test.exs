@@ -1,11 +1,11 @@
 defmodule Book.Helpers.BookHelperTest do
   use Books.DataCase
-  
+
   alias Books.Helpers.BookHelper
   alias Books.Services.BookService
-  
+
   import Mock
-  
+
   @book_params %{
     "title" => "Titulo del libro",
     "author" => "Enrique Lopez",
@@ -35,7 +35,7 @@ defmodule Book.Helpers.BookHelperTest do
       {:ok, book_saved} = BookHelper.save_book(@book_params)
       assert @saved_expected_book = book_saved
 
-      assert called BookService.build_book_cover(@book_params)
+      assert called(BookService.build_book_cover(@book_params))
     end
   end
 end

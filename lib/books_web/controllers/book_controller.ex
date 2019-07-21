@@ -36,6 +36,7 @@ defmodule BooksWeb.BookController do
     case BookHelper.get_book(id) do
       book ->
         review_changeset = ReviewManager.new()
+
         conn
         |> assign(:review, review_changeset)
         |> assign(:book, book)
