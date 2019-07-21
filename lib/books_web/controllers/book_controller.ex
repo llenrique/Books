@@ -5,6 +5,7 @@ defmodule BooksWeb.BookController do
   use BooksWeb, :controller
 
   alias Books.Helpers.BookHelper
+  alias Books.Contexts.ReviewManager
 
   @doc """
   Despliega el formulario donde se coloca la información del libro
@@ -34,7 +35,9 @@ defmodule BooksWeb.BookController do
   def show(conn, %{"id" => id}) do
     case BookHelper.get_book(id) do
       book ->
+        review_changeset = ReviewManager.new()
         conn
+        |> assign(:review, review_changeset)
         |> assign(:book, book)
         |> render(:show)
     end
