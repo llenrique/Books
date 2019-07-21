@@ -2,6 +2,7 @@ defmodule Books.Contexts.BookManager do
   @moduledoc """
   Provee un CRUD de libros
   """
+  import Ecto.Query
 
   alias Books.Repo
   alias Books.Contexts.Book
@@ -21,6 +22,7 @@ defmodule Books.Contexts.BookManager do
   """
   def get_by_id(id) do
     Book
+    |> preload(:reviews)
     |> Repo.get!(id)
   end
 end
