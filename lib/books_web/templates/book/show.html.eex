@@ -2,3 +2,18 @@
 <h2> <%= @book.author %> </h2>
 
 <img src=<%= @book.cover %>>
+
+<h3> Agrega un Review a este libro </h3>
+<%= form_for @review, Routes.review_path(@conn, :create, @book.id), fn f -> %>
+    <%= label f, :content %>
+    <%= text_input f, :content %>
+    <%= submit "Agregar Review" %>
+<%end%>
+
+
+<h4> Reviews </h4>
+<%= for review <- @book.reviews do %>
+    <p>
+        <%= review.content %>
+    </p>
+<%end%>
