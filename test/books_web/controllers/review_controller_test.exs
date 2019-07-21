@@ -14,7 +14,6 @@ defmodule BooksWeb.ReviewControllerTest do
     test "create/2 Agrega un review", %{conn: conn} do
         book = insert(:book)
         review_params = Map.put(@review_test, "book_id", book.id)
-
         conn = post(conn, Routes.review_path(conn, :create, book.id, review_params))
 
         assert redirected_to(conn) =~ "/show/#{book.id}"
@@ -22,9 +21,7 @@ defmodule BooksWeb.ReviewControllerTest do
     
     test "create/2 Falla al agregar un review", %{conn: conn} do
         book = insert(:book)
-
         review_params = Map.put(@invalid_review_test, "book_id", book.id)
-
         conn = post(conn, Routes.review_path(conn, :create, book.id, review_params))
 
         assert get_flash(conn, :error) == "No se pudo agregar el review"

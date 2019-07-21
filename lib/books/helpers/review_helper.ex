@@ -5,6 +5,9 @@ defmodule Books.Helpers.ReviewHelper do
 
     alias Books.Contexts.ReviewManager
 
+    @doc """
+    Agrega un review a un libro
+    """
     @spec add_review(map) :: atom
     def add_review(%{"book_id" => book_id, "review" => review }) do
         with %{"content" => content} <- review,
