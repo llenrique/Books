@@ -1,12 +1,13 @@
 pipeline:
   build:
-    image: elixir:1.7.4
+    image: elixir
     environment:
       - MIX_ENV=test
     commands:
+      - mix local.hex --force
       - mix deps.get
 
   test:
-    image: elixir:1.7.4
+    image: elixir
     environment:
       - MIX_ENV=test
