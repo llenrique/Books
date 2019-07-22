@@ -1,10 +1,33 @@
-<h1>Agregar un nuevo libro</h1>
-
-<%= form_for @conn, Routes.book_path(@conn, :create), [multipart: :true], fn f-> %>
-  <%= text_input f, :title %>
-  <%= text_input f, :author%>
-  <%= file_input f, :cover %>
-  <p>
-    <%= submit "Subir Libro" %>
-  </p>
-<% end %>
+<section>
+	<div class="columns">
+		<div class="column is-offset-4 is-4">
+			<%= form_for @conn, Routes.book_path(@conn, :create), [multipart: :true], fn f-> %>
+				<div class="field">
+					<%= label f, :title, class: "label" %>
+					<%= text_input f, :title, class: "input" %>
+				</div>
+				<div class="field">
+					<%= label f, :author, class: "label" %>
+					<%= text_input f, :author, class: "input" %>
+				</div>
+				<div class="field">
+					<div class="file has-name">
+						<div class="file is-boxed">
+							<label class="file-label">
+								<%= file_input f, :cover, class: "file-input" %>
+								<span class="file-cta">
+									<span class="file-label">
+										Choose a file…
+									</span>
+								</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<p>
+					<%= submit "Subir Libro", class: "button is-info" %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+</section>
