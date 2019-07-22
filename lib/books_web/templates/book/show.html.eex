@@ -7,7 +7,7 @@
 <%= form_for @review, Routes.review_path(@conn, :create, @book.id), fn f -> %>
     <div class="field">
         <%= label f, :content, class: "label" %>
-        <%= text_input f, :content, class: "input" %>
+        <%= textarea f, :content, class: "input" %>
     </div>
     <%= submit "Agregar Review", class: "button is-info" %>
 <%end%>
