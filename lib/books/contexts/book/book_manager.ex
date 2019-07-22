@@ -4,8 +4,8 @@ defmodule Books.Contexts.BookManager do
   """
   import Ecto.Query
 
-  alias Books.Repo
   alias Books.Contexts.Book
+  alias Books.Repo
 
   @doc """
   Crea un libro

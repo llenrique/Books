@@ -1,9 +1,7 @@
 defmodule Books.Helpers.ReviewHelperTest do
   use Books.DataCase
 
-  alias Books.Helpers.ReviewHelper
-  alias Books.Helpers.BookHelper
-
+  alias Books.Helpers.{BookHelper, ReviewHelper}
   import Books.Factory
 
   @valid_review_params %{

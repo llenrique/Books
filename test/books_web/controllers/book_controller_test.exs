@@ -16,7 +16,7 @@ defmodule BooksWeb.BookControllerTest do
 
   test "index/2 despliegue del formulario de nuevo libro", %{conn: conn} do
     conn = get(conn, "/new")
-    assert html_response(conn, 200) =~ "Agregar un nuevo libro"
+    assert html_response(conn, 200) =~ "Title"
   end
 
   test "create/2 recibe los parametros para crear un libro", %{conn: conn} do
