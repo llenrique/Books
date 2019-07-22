@@ -8,13 +8,39 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
-    <header>
-    </header>
-    <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
-    </main>
+    <section class="hero is-fullheight">
+      <div class="hero-head">
+        <header class="navbar">
+			<div class="container">
+				<div class="navbar-brand">
+					<a class="navbar-item" href=<%= Routes.page_path(@conn, :index)%> >
+						<h2 class="title">Books</h2>
+					</a>
+					<span class="navbar-burger burger" data-target="navbarMenuHeroC">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</div>
+				<div class="navbar-menu" id="navbarMenuHeroC">
+					<div class="navbar-end">
+						<a class="navbar-item" href=<%= Routes.book_path(@conn, :index)%> >
+							Add Book
+						</a>
+					</div>
+				</div>
+			</div>
+        </header>
+      </div>
+
+      <div class="hero-body">
+        <main role="main" class="container">
+          <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+          <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+          <%= render @view_module, @view_template, assigns %>
+        </main>
+      </div>
+    </section>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

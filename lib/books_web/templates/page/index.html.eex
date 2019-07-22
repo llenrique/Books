@@ -1,17 +1,27 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed and maintainability.</p>
-</section>
 
-<section class="row">
-    <article>
-      <%= for book <- @books do %>
-        <p>
-          <a href=<%= Routes.book_path(@conn, :show, book.id) %>> 
-            <%= book.title %>
-          </a>
-        </p>
-        <img src=<%= book.cover %>>
-      <%end%>
-    </article>
+<section>
+  <div class="columns is-multiline">
+    <%= for book <- @books do %>
+      <div class="column is-one-quarter">
+        <a href=<%= Routes.book_path(@conn, :show, book.id)%> >
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by5">
+                <img src=<%= book.cover %>>
+              </figure>
+            </div>
+
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4">Author:</p>
+                  <p class="subtitle is-6"><%= book.author %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    <%end%>
+  </div>
 </section>
