@@ -1,21 +1,45 @@
-<h1> <%= @book.title %> </h1>
-<h2> <%= @book.author %> </h2>
-
-<img src=<%= @book.cover %>>
-
-<h3> Agrega un Review a este libro </h3>
-<%= form_for @review, Routes.review_path(@conn, :create, @book.id), fn f -> %>
-    <div class="field">
-        <%= label f, :content, class: "label" %>
-        <%= text_input f, :content, class: "input" %>
+<h1 class="title is-1 has-text-centered"><%= @book.title %></h1>
+<div class="columns is-multiline">
+    <div class="column is-2 is-offset-5">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-3by5">
+                    <img src=<%= @book.cover %> >
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media-content">
+                    <p class="title is-5">Author</P>
+                    <p class="subtitle is-6"><%= @book.author %></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <%= submit "Agregar Review", class: "button is-info" %>
-<%end%>
+
+    <div class="column is-6 is-offset-3">
+        <h3 class="subtitle is-3"> Agrega un Review a este libro </h3>
+        <%= form_for @review, Routes.review_path(@conn, :create, @book.id), fn f -> %>
+            <div class="field">
+                <%= label f, :content, class: "label" %>
+                <%= textarea f, :content, class: "input" %>
+            </div>
+            <%= submit "Agregar Review", class: "button is-info" %>
+        <%end%>
+    </div>
+
+    <div class="column is-6 is-offset-3">
+        <h4> Reviews </h4>
+        <%= for review <- @book.reviews do %>
+            <p>
+                <%= review.content %>
+            </p>
+        <%end%>
+    </div>
+</div>
 
 
-<h4> Reviews </h4>
-<%= for review <- @book.reviews do %>
-    <p>
-        <%= review.content %>
-    </p>
-<%end%>
+
+
+
+
+

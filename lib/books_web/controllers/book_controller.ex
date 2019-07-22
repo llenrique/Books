@@ -4,8 +4,8 @@ defmodule BooksWeb.BookController do
   """
   use BooksWeb, :controller
 
-  alias Books.Helpers.BookHelper
   alias Books.Contexts.ReviewManager
+  alias Books.Helpers.BookHelper
 
   @doc """
   Despliega el formulario donde se coloca la información del libro

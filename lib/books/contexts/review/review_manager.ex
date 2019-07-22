@@ -3,8 +3,8 @@ defmodule Books.Contexts.ReviewManager do
   Modulo para crear reviews de un libro
   """
 
-  alias Books.Repo
   alias Books.Contexts.Review
+  alias Books.Repo
 
   def new, do: Review.changeset(%Review{}, %{})
 

@@ -1,6 +1,6 @@
 defmodule Books.Contexts.BookManagerTest do
   use Books.DataCase
-  alias Books.Contexts.{BookManager, Book}
+  alias Books.Contexts.{Book, BookManager}
 
   import Books.Factory
 

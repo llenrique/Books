@@ -1,8 +1,15 @@
 defmodule BooksWeb.ReviewController do
+  @moduledoc """
+  Modulo que provee la interfaz para administrar los reviews
+  """
   use BooksWeb, :controller
 
   alias Books.Helpers.ReviewHelper
 
+  @doc """
+  Crea un review para un libro
+  """
+  @spec create(map, map) :: String.t()
   def create(conn, params) do
     case ReviewHelper.add_review(params) do
       :ok ->

@@ -13,7 +13,7 @@ defmodule Books.Services.BookService do
   def build_book_cover(%{"cover" => cover}) do
     %{content_type: content} = cover
     %{path: path} = cover
-    {:ok, imageData} = File.read(path)
-    "data:#{content};base64,#{encode64(imageData)}"
+    {:ok, image_data} = File.read(path)
+    "data:#{content};base64,#{encode64(image_data)}"
   end
 end
