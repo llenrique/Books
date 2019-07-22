@@ -1,0 +1,12 @@
+pipeline:
+  build:
+    image: elixir:1.7.4
+    environment:
+      - MIX_ENV=test
+    commands:
+      - mix deps.get
+
+  test:
+    image: elixir:1.7.4
+    environment:
+      - MIX_ENV=test
